@@ -1,19 +1,5 @@
 class Animal
-	def set_name=(name)
-		@name = name
-	end
-
-	def get_name
-		return @name
-	end
-
-	def set_legs=(legs)
-		@legs = legs
-	end
-
-	def get_legs 
-		return @legs
-	end
+	attr_accessor :name, :legs	
 end
 
 class Dog < Animal
@@ -35,25 +21,25 @@ class Cow < Animal
 end
 
 	my_Dog = Dog.new
-	my_Dog.set_name = "Chummy"
-	Dog_name = my_Dog.get_name
-	my_Dog.set_legs = 4
-	Dog_legs = my_Dog.get_legs
+	my_Dog.name = "Chummy"
+	Dogname = my_Dog.name
+	my_Dog.legs = 4
+	Doglegs = my_Dog.legs
 
 	my_Duck = Duck.new
-	my_Duck.set_name = "Duckie"
-	Duck_name = my_Duck.get_name
-	my_Duck.set_legs = 2
-	Duck_legs = my_Duck.get_legs
+	my_Duck.name = "Duckie"
+	Duckname = my_Duck.name
+	my_Duck.legs = 2
+	Ducklegs = my_Duck.legs
 
 	my_Cow = Cow.new
-	my_Cow.set_name = "Anna"
-	Cow_name = my_Cow.get_name
-	my_Cow.set_legs = 4
-	Cow_legs = my_Cow.get_legs
+	my_Cow.name = "Anna"
+	Cowname = my_Cow.name
+	my_Cow.legs = 4
+	Cowlegs = my_Cow.legs
 
 
-	puts "My cow #{Cow_name} has #{Cow_legs} legs and says #{my_Cow.moo}. My dog #{Dog_name} has #{Dog_legs} legs and says #{my_Dog.bark}. My duck #{Duck_name} has #{Duck_legs} legs and says #{my_Duck.quack}! I love my animals!"
+	puts "My cow #{Cowname} has #{Cowlegs} legs and says #{my_Cow.moo}. My dog #{Dogname} has #{Doglegs} legs and says #{my_Dog.bark}. My duck #{Duckname} has #{Ducklegs} legs and says #{my_Duck.quack}! I love my animals!"
 
 	puts my_Dog.inspect
 	puts my_Duck.inspect

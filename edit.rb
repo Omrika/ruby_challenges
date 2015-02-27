@@ -1,11 +1,5 @@
 class Animal
-	def set_name=(name)
-		@name = name
-	end
-
-	def get_name
-		return @name
-	end
+attr_accessor :name
 end
 
 class Dog < Animal
@@ -15,7 +9,7 @@ class Dog < Animal
 end
 
 my_Dog = Dog.new
-my_Dog.set_name = "chummy"
-Dog_name = my_Dog.get_name
+my_Dog.name = "chummy"
+Dogname = my_Dog.name
 
-puts "My dog #{Dog_name} says #{my_Dog.bark}"
+puts "My dog #{Dogname} says #{my_Dog.bark}!"
