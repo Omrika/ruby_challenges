@@ -21,5 +21,4 @@ end
 get "/:name" do
 	name = params[:name].capitalize
 	my_greeting = greeting(name)
-	my_greeting
 end
