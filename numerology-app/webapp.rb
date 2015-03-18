@@ -39,12 +39,16 @@ def get_msg (birth_num)
 	end
 end
 
-
-get '/:birthdate' do
+def setup_index_view
 	birthdate = params[:birthdate]
 	birth_num = user_bday(birthdate)
 	@message = get_msg(birth_num)
 	erb :index
+end
+
+
+get '/:birthdate' do
+	setup_index_view
 end
 
 get '/' do
@@ -52,8 +56,12 @@ get '/' do
 end
 
 post '/' do
-	birthdate = params[:birthdate]
-	birth_num = user_bday(birthdate)
+	birth_num = user_bday(params[:birthdate])
+	redirect "/message/#{birth_num}"
+end
+
+get '/message/:birth_num' do
+	birth_num = params[:birth_num].to_i
 	@message = get_msg(birth_num)
 	erb :index
 end
