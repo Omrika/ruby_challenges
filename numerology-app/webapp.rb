@@ -46,6 +46,15 @@ def setup_index_view
 	erb :index
 end
 
+def valid_birthdate (input)
+	if input.length == 8
+		return true
+	elsif 
+		input.match(/^[0-9] + [0-9]$/) #reg expression
+	else 
+		return false
+	end
+end
 
 get '/:birthdate' do
 	setup_index_view
@@ -56,8 +65,14 @@ get '/' do
 end
 
 post '/' do
-	birth_num = user_bday(params[:birthdate])
-	redirect "/message/#{birth_num}"
+	birthdate = params[:birthdate]
+	if valid_birthdate (birthdate)
+		birth_num = user_bday(birthdate)
+		redirect "/message/#{birth_num}"
+	else
+		@error = "Sorry your input wasn't valid, try again!"
+		erb :form
+	end
 end
 
 get '/message/:birth_num' do
@@ -65,3 +80,4 @@ get '/message/:birth_num' do
 	@message = get_msg(birth_num)
 	erb :index
 end
+
